@@ -1,0 +1,63 @@
+.centerAlign {
+    margin-left: 25%;
+    width: 50%;
+    text-align: center;
+    border: 2px solid #000000;
+}
+
+.input {
+    width: inherit;
+    height: 50px;
+}
+
+button {
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    padding: 10px;
+}
+
+button:active {
+    background-color: #aaaaaa;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.user {
+    width: 100%;
+    border: 2px solid #000000;
+}
+
+.user > p {
+    display: inline-block;
+    height: inherit;
+}
+
+.user > button {
+    display: inline-block;
+    height:  inherit;
+}
+
+.newUser {
+    width: 100%;
+    border: 2px solid #000000;
+}
+
+.newUser > p {
+    display: inline-block;
+    height: inherit;
+}
+
+.newUser > button {
+    display: inline-block;
+    height:  inherit;
+}
+
+table, th, td {
+    width: 100%;
+    border: 2px solid #000000;
+}
+td {
+    width: 33%;
+}

@@ -1,0 +1,103 @@
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>User Manager</title>
+</head>
+<body>
+    <div class="centerAlign">
+        <h1>User Manager</h1>
+    </div>
+    <div class="centerAlign" id="users">
+        <br>
+        <input class="input" placeholder="Search for a user" id="search">
+        <button onclick="Search()">Search</button>
+        <br>
+        <br>
+        <div class="user">
+            <p>Name: </p>
+            <input tpye="text" value="Lorem Ipsum">
+            <br>
+            <p>Gender: </p>
+            <input type="text" value="M" maxlength="1">
+            <br>
+            <p>Birthday: </p>
+            <input type="date" value="2009-02-12">
+            <br>
+            <p>Parents: </p>
+            <input type="text" value="Jim, Karen">
+            <br>
+            <p>Contact: </p>
+            <input type="text" value="021123456">
+            <br>
+            <p>Email: </p>
+            <input type="email" value="jon.doe@gmail.com">
+            <br>
+            <p>Notes: </p>
+            <textarea>Allergic to bread</textarea>
+            <br>
+            <button class="userManagerUpdate">Update</button>
+        </div>
+
+        <div class="user">
+            <p>Name: </p>
+            <input tpye="text" value="Bobby Johnson">
+            <br>
+            <p>Gender: </p>
+            <input type="text" value="M" maxlength="1">
+            <br>
+            <p>Birthday: </p>
+            <input type="date" value="2015-05-30">
+            <br>
+            <p>Parents: </p>
+            <input type="text" value="jeffery, donavan">
+            <br>
+            <p>Contact: </p>
+            <input type="text" value="0211234567">
+            <br>
+            <p>Email: </p>
+            <input type="email" value="fake@email.domain">
+            <br>
+            <p>Notes: </p>
+            <textarea></textarea>
+            <br>
+            <button class="userManagerUpdate">Update</button>
+        </div>
+    </div>
+    <div class="centerAlign">
+        <div class="newUser">
+            <p>Name: </p>
+            <input tpye="text" placeholder="Enter child's name">
+            <br>
+            <p>Gender: </p>
+            <input type="text" placeholder="Enter child's gender" maxlength="1">
+            <br>
+            <p>Birthday: </p>
+            <input type="date" >
+            <br>
+            <p>Parents: </p>
+            <input type="text" placeholder="Enter parent/caregiver names">
+            <br>
+            <p>Contact: </p>
+            <input type="text" placeholder="Enter parent/caregiver's phone number">
+            <br>
+            <p>Email: </p>
+            <input type="email" placeholder="Enter parent/caregiver's email">
+            <br>
+            <p>Notes: </p>
+            <textarea placeholder="Enter any notes (alergies, medication, ...)"></textarea>
+            <br>
+            <button onclick="AddUser()">Add</button>
+        </div>
+    </div>
+    <div class="centerAlign">
+        <button onclick="window.open('contents.html', '_self')">Back</button>
+        <button onclick="Clear()">Clear Search</button>
+    </div>
+
+    <script src="scripts/userManager.js"></script>
+</body>
+</html>
