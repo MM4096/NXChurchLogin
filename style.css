@@ -1,12 +1,11 @@
 .centerAlign {
-    margin-left: 25%;
-    width: 50%;
+    width: 100%;
     text-align: center;
     border: 2px solid #000000;
 }
 
 .input {
-    width: inherit;
+    width: 50%;
     height: 50px;
 }
 
