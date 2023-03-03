@@ -11,29 +11,19 @@
     <div class="centerAlign">
         <h1>Check In</h1>
     </div>
-    <div class="centerAlign">
+    <div class="centerAlign" id="users">
         <br>
         <input class="input" placeholder="Search by firstname or lastname" id="search">
         <button onclick="Search()">Search</button>
         <br>
         <br>
-        <div class="user">
-            <p><strong>Lorem Ipsum</strong></p>
-            <p>Last checked in: 25/12/2022, 10:30</p>
-            <button class="userButton">Check in</button>
-        </div>
 
-        <div class="user">
-            <p><strong>Bob Jeff</strong></p>
-            <p>Last checked in: 5/6/2021, 10:30</p>
-            <button class="userButton">Check in</button>
-        </div>
     </div>
     <div class="centerAlign">
         <button onclick="window.open('contents.html', '_self')">Back</button>
         <button onclick="Clear()">Clear Search</button>
     </div>
 
-    <script src="scripts/checkin.js"></script>
+    <script src="scripts/checkin.js" type="module"></script>
 </body>
 </html>
