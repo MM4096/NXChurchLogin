@@ -138,7 +138,6 @@ function AddUser() {
         contact: contact,
         email: email,
         notes: notes,
-        last_signed_in: "",
     });
     newUser.eq(0).find("input").eq(0).val("");
     newUser.eq(0).find("input").eq(1).val("");

@@ -28,7 +28,7 @@ $(function() {
             $("#users").append(
                 '<div class="user">'
                 + '<p><strong>' + name + '</strong></p>'
-                + '<p> Last checked in: ' + lastCheckedIn +' </p>'
+                // + '<p> Last checked in: ' + lastCheckedIn +' </p>'
                 + '<button class="userButton">Check in</button>'
                 + '</div>'
             );
@@ -44,15 +44,32 @@ $(function() {
 
 $(document).on("click", "button", function() {
     let currentTime = new Date();
+    console.log(currentTime);
+    let minutes = currentTime.getMinutes();
+    console.log(minutes);
+    if (minutes < 10) {
+        minutes = "0" + minutes;
+    }
     let dateSyntax = currentTime.getDate() + "/"
         + (currentTime.getMonth() + 1) + "/"
         + currentTime.getFullYear() + ", "
         + currentTime.getHours() + ":"
-        + currentTime.getMinutes()
-    $(".user").eq(parseInt(this.id)).find("p").eq(1).text("Last checked in: " + dateSyntax);
+        + minutes
+    let date = currentTime.getDate() + ":" + currentTime.getMonth() + ":" + currentTime.getFullYear();
+    let time = currentTime.getHours() + ":" + minutes;
+    // $(".user").eq(parseInt(this.id)).find("p").eq(1).text("Last checked in: " + dateSyntax);
     let username = $(".user").eq(parseInt(this.id)).find("p").eq(0).text();
 
-    update(ref(database, "/users/" + username), ("last_signed_in": dateSyntax))
+    get(child(dbRef, "/reports/" + date + "/" + username + "/")).then((snapshot) => {
+        if (snapshot.exists()) {
+            alert("User already logged in!");
+        }
+        else {
+            set(ref(database, "/reports/" + date + "/" + username + "/"), {
+                sign_in_time: time,
+            });
+        }
+    })
 })
 
 function Search() {
