@@ -12,28 +12,20 @@
         <h1>Reports</h1>
     </div>
     <div class="centerAlign">
-        <table>
+        <table id="reports">
             <tr>
                 <td>Date</td>
-                <td>Last export</td>
                 <td>Export</td>
-            </tr>
-            <tr>
-                <td>25/12/2022</td>
-                <td class="exportDate">Never exported</td>
-                <td><button>Export</button></td>
-            </tr>
-            <tr>
-                <td>18/12/2022</td>
-                <td class="exportDate">20/12/2022</td>
-                <td><button>Export</button></td>
             </tr>
         </table>
     </div>
+    <table hidden id="reportBody">
+
+    </table>
     <div class="centerAlign">
         <button onclick="window.open('contents.html', '_self')">Back</button>
     </div>
 
-    <script src="scripts/report.js"></script>
+    <script src="scripts/report.js" type="module"></script>
 </body>
 </html>

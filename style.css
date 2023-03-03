@@ -67,4 +67,5 @@ table, th, td {
 }
 td {
     width: 33%;
+    padding: 10px;
 }
