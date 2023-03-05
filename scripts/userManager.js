@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+import { getDatabase, ref, set, get, child, update } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAvNYjdEMLq50uSdDCLigP0D0CHkv_js7Y",
@@ -17,8 +18,23 @@ const database = getDatabase(app);
 
 const dbRef = ref(database);
 
-$(function() {
-    get(child(dbRef, "/users/")).then((snapshot) => {
+const auth = getAuth();
+
+let uid = "";
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        uid = user.uid;
+        Ready();
+    } else {
+        window.location.href = "index.html";
+    }
+});
+
+function Ready() {
+    console.log(uid);
+    get(child(dbRef, "/" + uid + "/users/")).then((snapshot) => {
+        console.log(snapshot.val());
         snapshot.forEach(function(child) {
             let name = child.val().name;
             let gender = child.val().gender;
@@ -61,7 +77,7 @@ $(function() {
             $(".user").eq(i).find("button:first").attr("id", i);
         }
     });
-})
+}
 
 $(document).on("click", "button", function() {
     let selectedId = this.id;
@@ -77,7 +93,7 @@ $(document).on("click", "button", function() {
     let notes = user.eq(selectedId).find("textarea").val();
     let email = user.eq(selectedId).find("input").eq(5).val();
 
-    set(ref(database, "/users/" + name + "/"), {
+    update(ref(database, "/" + uid + "/users/" + name + "/"), {
         name: name,
         gender: gender,
         year: yearLevel,
@@ -130,7 +146,7 @@ function AddUser() {
         alert("Some fields weren't filled in!");
         return;
     }
-    set(ref(database, "/users/" + name + "/"), {
+    set(ref(database, "/" + uid + "/users/" + name + "/"), {
         name: name,
         gender: gender,
         year: year,
@@ -138,6 +154,7 @@ function AddUser() {
         contact: contact,
         email: email,
         notes: notes,
+        last_signed_in: "",
     });
     newUser.eq(0).find("input").eq(0).val("");
     newUser.eq(0).find("input").eq(1).val("");

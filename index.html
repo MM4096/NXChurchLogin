@@ -5,24 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>NX Church Login</title>
+    <title>Church Login</title>
 </head>
 <body>
     <div class="centerAlign">
-        <h1>NX Church Login</h1>
+        <h1>Church Login</h1>
     </div>
     <br>
     <div class="centerAlign">
         <p class="error" id="error"></p>
-        <input class="input" id="username" placeholder="Enter your username. test username is anything">
+        <input class="input" id="username" placeholder="Enter your username">
         <br>
         <br>
-        <input tpye="password" class="input" id="password" placeholder="Enter your password. test password is anything">
+        <input type="password" class="input" id="password" placeholder="Enter your password">
         <br>
         <br>
-        <button onclick="CheckLogin()">Log in</button>
+        <button onclick="Login()">Log in</button>
     </div>
-    <p><small>For testing, none of the changes you make are saved</small></p>
-    <script src="scripts/index.js"></script>
+    <script src="scripts/index.js" type="module"></script>
 </body>
 </html>
